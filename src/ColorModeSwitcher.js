@@ -11,7 +11,7 @@ const ColorModeSwitcher = props => {
     <IconButton
       aria-label={`Switch to ${text} mode`}
       variant="ghost"
-      color="Highlight"
+      color="lightgray"
       pos={"fixed"}
       top={"4"}
       right={"4"}
