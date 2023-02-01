@@ -15,7 +15,7 @@ const Exchanges = () => {
 
   useEffect(() => {
 
-    const fetchExchange = async () => {
+    const fetchExchanges = async () => {
       try {
         const { data } = await axios.get(`${server}/exchanges`)
         setExchanges(data)
@@ -28,7 +28,7 @@ const Exchanges = () => {
 
       }
     }
-    fetchExchange()
+    fetchExchanges()
 
   }, [])
   if(error){
@@ -39,7 +39,7 @@ const Exchanges = () => {
 
   return (
     <div >
-      <Container maxW={"container.xl"} pos={"absolute"} top={"20"}>
+      <Container maxW={"container.xl"} pos={"absolute"}>
         {
           Loading ? <Loader /> : <>
             <HStack wrap={"wrap"}>
