@@ -39,7 +39,7 @@ const Exchanges = () => {
 
   return (
     <div >
-      <Container maxW={"container.xl"} pos={"absolute"}>
+      <Container maxW={"container.xl"}>
         {
           Loading ? <Loader /> : <>
             <HStack wrap={"wrap"}>

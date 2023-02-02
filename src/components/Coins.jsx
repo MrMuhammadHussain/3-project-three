@@ -1,4 +1,4 @@
-import { Button, Container, HStack, } from '@chakra-ui/react'
+import { Button, Container, HStack, Radio, RadioGroup, } from '@chakra-ui/react'
 import axios from 'axios'
 import CoinCard from './CoinCard'
 import Loader from './Loader'
@@ -15,21 +15,33 @@ const Coins = () => {
   const [page, setPage] = useState(1)
   const [currency, setCurrency] = useState("pkr")
 
-  const currencySymbol = currency === "pkr" ? "Rs. " : currency === "eur" ? "€" : "$"
+  const currencySymbol = currency === "pkr" ? "Rs: " : currency === "eur" ? "€: " : "$: "
+  /* //pagenation button */
+  // const ChangePage = (page) => {
+  //   setPage(page + 1)
+  //   setLoading(true)
+
+  // }
+  // const PerPage = (page) => {
+  //   setPage(page - 1)
+  //   setLoading(true)
+  // }
+  // const firstPage = (page) => {
+  //   setPage(1)
+  //   setLoading(true)
+  // }
+
+  /* anothe mathed to print button */
 
   const ChangePage = (page) => {
-    setPage(page + 1)
+    setPage(page)
     setLoading(true)
 
   }
-  const PerPage = (page) => {
-    setPage(page - 1)
-    setLoading(true)
-  }
-  const firstPage = (page) => {
-    setPage(1)
-    setLoading(true)
-  }
+  const btns = new Array(124).fill(1)
+
+
+
   useEffect(() => {
 
     const fetchCoins = async () => {
@@ -37,7 +49,7 @@ const Coins = () => {
         const { data } = await axios.get(`${server}/coins/markets?vs_currency=${currency}&page=${page}`)
         setCoins(data)
         setLoading(false)
-        console.log(data);
+        // console.log(data);
 
       } catch (error) {
         setError(true)
@@ -57,9 +69,18 @@ const Coins = () => {
 
   return (
     <div >
-      <Container maxW={"container.xl"} pos={"absolute"}>
+      <Container maxW={"container.xl"}>
+        <RadioGroup value={currency} onChange={setCurrency} p={"5"}>
+          <HStack spacing={"4"} justifyContent={"flex-start"}>
+            <Radio value="pkr">PKR</Radio>
+            <Radio value="eur">EUR</Radio>
+            <Radio value="usd">USD</Radio>
+          </HStack>
+        </RadioGroup>
         {
           Loading ? <Loader /> : <>
+
+
             <HStack wrap={"wrap"}>
 
               {
@@ -69,17 +90,27 @@ const Coins = () => {
               }
             </HStack>
 
-            <HStack w={"full"} justifyContent={"center"}>
-
-              {
+            <HStack w={"full"} overflowX={"auto"} p={"8"} >
+              {/* //pagenation button */
+              /* {
                 page == "1" ? "" :page =="2" ? ""  : <Button bgColor={"blackAlpha.800"} color={"white"} onClick={() => firstPage(1)}>firstPage</Button>
               }
-
               {
                 page == "1" ? "" : <Button bgColor={"blackAlpha.800"} color={"white"} onClick={() => PerPage(page)}>{`${page - 1}`}</Button>
               }
+              <Button colorScheme={"blackAlpha"} color={"white"} onClick={() => ChangePage(page)}>{`${page + 1}>`}</Button> */}
 
-              <Button bgColor={"blackAlpha.800"} color={"white"} onClick={() => ChangePage(page)}>{`${page + 1}>`}</Button>
+              {/* anothe mathed to print button */}
+              {
+                btns.map((item, index) => {
+                  return (
+                    <Button colorScheme={"blackAlpha"} bgColor={"white"} color={"Black"} onClick={() => ChangePage(index + 1)} shadow={"lg"} key={index}>
+                      {index + 1}
+                    </Button>
+                  )
+
+                })
+              }
 
             </HStack>
 
