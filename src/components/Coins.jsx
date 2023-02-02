@@ -81,7 +81,7 @@ const Coins = () => {
           Loading ? <Loader /> : <>
 
 
-            <HStack wrap={"wrap"}>
+            <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
 
               {
                 coins.map((i) =>
