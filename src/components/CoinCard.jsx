@@ -7,7 +7,7 @@ const CoinCard = ({ id, name, image, symbol, price, currencySymbol }) => {
         <div >
             <Link to={`/coin/${id}`}>
                 <VStack w={"52"} shadow={"lg"} p={"8"} borderRadius={"lg"} transition={"all 0.3s"} m={"4"} css={{
-                    "&:hover": { transform: "scale(1.1)" }
+                    "&:hover": { transform: "scale(1.2)" }
                 }}>
                     <Image src={image} w={"10"} h={"10"} objectFit={"contain"} alt={name} />
                     <Heading size={"md"} textTransform={"uppercase"} noOfLines={1} >{symbol}</Heading>

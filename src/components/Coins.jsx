@@ -61,9 +61,7 @@ const Coins = () => {
     fetchCoins()
 
   }, [currency, page])
-  if (error) {
-    return <ErrorComponent />
-  }
+  if (error) { return <ErrorComponent />}
 
 
 
@@ -90,7 +88,7 @@ const Coins = () => {
               }
             </HStack>
 
-            <HStack w={"full"} overflowX={"auto"} p={"8"} >
+            <HStack overflowX={"auto"} p={"8"} >
               {/* //pagenation button */
               /* {
                 page == "1" ? "" :page =="2" ? ""  : <Button bgColor={"blackAlpha.800"} color={"white"} onClick={() => firstPage(1)}>firstPage</Button>
