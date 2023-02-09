@@ -6,24 +6,33 @@ import { Chart as ChartJs, CategoryScale, LinearScale, PointElement, LineElement
 ChartJs.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)
 
 const CoinChart = ({ arry = [], currency, days }) => {
-    const prices = [1,2,3,4]
-    const date = ["12/01/203","455456","212123"]
+    const prices = []
+    const date = []
+
+    for (let i = 0; i < arry.length; i++) {
+        if (days === "24h") { date.push(new Date(arry[i][0]).toLocaleTimeString()); }
+        else { date.push(new Date(arry[i][0]).toLocaleDateString()) };
+        prices.push(arry[i][1]);
+
+    }
     const data = {
+        labels: date,
+        datasets: [
+            {
+                label: `Price In ${currency}`.toUpperCase(),
+                data: prices,
+                borderColor: "rgb(255,93,123)",
+                backgroundColor: "rgb(255,93,123,0.7)",
+            }]
 
     }
 
 
     return (
-        <div>
+        <div >
             <Line options={
                 { responsive: true }}
-                data={
-                    {labels:date,datasets:[{
-                        label:`Price In ${currency}`,
-                        data:prices,
-                        borderColor:"rgb(255,93,123)",
-                        backgroundColor:"rgb(255,93,123,0.7)",
-                    }] }} />
+                data={data}  />
 
 
 

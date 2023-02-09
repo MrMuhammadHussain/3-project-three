@@ -2,7 +2,11 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>Home
+
+{/* 6h:24m */}
+
+    </div>
   )
 }
 
