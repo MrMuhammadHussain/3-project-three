@@ -1,0 +1,6 @@
+[{
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target" : { "namespace": "android_app", "package_name": "app.vercel.reactcryptosite.twa",
+                     "sha256_cert_fingerprints": ["DB:F6:40:FC:9C:F6:74:59:FA:DC:13:B1:14:85:7B:9E:EB:D7:C3:E6:F6:A4:C7:FC:C2:89:52:C8:F7:5F:94:EA"] }
+      }
+]
