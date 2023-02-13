@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Home from './components/Home'
 import Exchanges from './components/Exchanges'
 import CoinDetails from './components/CoinDetails'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
 
 
         </Routes>
+        <Footer />
       </Router>
     </div>
   )
