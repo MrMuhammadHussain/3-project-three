@@ -14,7 +14,7 @@ const Footer = () => {
                         <Text fontWeight={"bold"}>About Us</Text>
                         <Text fontSize={"sm"}
                             letterSpacing={"widest"}
-                            textAlign={["center", "left"]}>I made This React CryptoApp as a Learing Project by Helping YouTube.</Text>
+                            textAlign={["center", "left"]}>I made This React CryptoApp as a Learing Project.</Text>
                     </VStack>
                     <VStack>
                         <Avatar boxSize={"28"}
